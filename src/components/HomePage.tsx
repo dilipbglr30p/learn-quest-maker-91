@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button-enhanced";
+import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { GraduationCap, Upload, Brain, Target, Zap, CheckCircle } from "lucide-react";
 
@@ -57,17 +57,17 @@ export const HomePage = ({ onStartQuiz }: HomePageProps) => {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
             <Button 
-              variant="hero" 
-              size="xl" 
+              variant="default"
+              size="lg" 
               onClick={onStartQuiz}
-              className="animate-fade-in"
+              className="animate-fade-in bg-gradient-to-r from-primary via-primary to-secondary text-primary-foreground shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200"
             >
               <Upload className="mr-2 h-5 w-5" />
               Start Creating Quizzes
             </Button>
             <Button 
               variant="outline" 
-              size="xl"
+              size="lg"
               className="animate-fade-in"
             >
               Watch Demo
@@ -145,7 +145,7 @@ export const HomePage = ({ onStartQuiz }: HomePageProps) => {
           </p>
           <Button 
             variant="outline" 
-            size="xl" 
+            size="lg" 
             onClick={onStartQuiz}
             className="bg-white text-primary hover:bg-white/90 border-white"
           >

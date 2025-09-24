@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button } from "@/components/ui/button-enhanced";
+import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { useToast } from "@/hooks/use-toast";
@@ -178,7 +178,7 @@ export const QuizDisplay = ({ quiz, onBack }: QuizDisplayProps) => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button variant="academic" size="lg" onClick={resetQuiz}>
+                <Button variant="default" size="lg" onClick={resetQuiz} className="bg-gradient-to-r from-primary to-primary/80">
                   <RotateCcw className="mr-2 h-5 w-5" />
                   Retake Quiz
                 </Button>
@@ -306,16 +306,18 @@ export const QuizDisplay = ({ quiz, onBack }: QuizDisplayProps) => {
             <div className="flex space-x-3">
               {!showExplanation ? (
                 <Button
-                  variant="academic"
+                  variant="default"
                   onClick={handleSubmitAnswer}
                   disabled={selectedAnswer === null}
+                  className="bg-gradient-to-r from-primary to-primary/80"
                 >
                   Submit Answer
                 </Button>
               ) : (
                 <Button
-                  variant="success"
+                  variant="default"
                   onClick={handleNextQuestion}
+                  className="bg-gradient-to-r from-green-600 to-green-700 text-white"
                 >
                   {currentQuestionIndex < quiz.questions.length - 1 ? 'Next Question' : 'Finish Quiz'}
                 </Button>

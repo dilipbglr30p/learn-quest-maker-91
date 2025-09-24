@@ -1,5 +1,5 @@
 import { useState, useCallback } from "react";
-import { Button } from "@/components/ui/button-enhanced";
+import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { useToast } from "@/hooks/use-toast";
@@ -214,19 +214,24 @@ export const QuizGenerator = () => {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 items-center">
-                <label htmlFor="pdf-upload">
-                  <Button variant="upload" size="lg" className="cursor-pointer">
-                    <FileText className="mr-2 h-5 w-5" />
-                    Choose PDF File
-                  </Button>
+                <div className="relative">
                   <input
                     id="pdf-upload"
                     type="file"
                     accept=".pdf"
                     onChange={handleFileUpload}
-                    className="hidden"
+                    className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
                   />
-                </label>
+                  <Button 
+                    type="button"
+                    variant="outline" 
+                    size="lg" 
+                    className="bg-accent text-accent-foreground shadow-medium hover:bg-accent/80 hover:shadow-strong border-2 border-dashed border-accent/50 hover:border-accent relative"
+                  >
+                    <FileText className="mr-2 h-5 w-5" />
+                    Choose PDF File
+                  </Button>
+                </div>
               </div>
 
               {file && (
@@ -242,12 +247,12 @@ export const QuizGenerator = () => {
           {/* Generation Section */}
           {file && !isGenerating && (
             <div className="mt-8 text-center">
-              <Button
-                variant="academic"
-                size="xl"
-                onClick={simulateQuizGeneration}
-                className="animate-pulse"
-              >
+        <Button
+          variant="default"
+          size="lg"
+          onClick={simulateQuizGeneration}
+          className="animate-pulse bg-gradient-to-r from-primary to-primary/80"
+        >
                 <Brain className="mr-2 h-5 w-5" />
                 Generate Quiz with AI
               </Button>
